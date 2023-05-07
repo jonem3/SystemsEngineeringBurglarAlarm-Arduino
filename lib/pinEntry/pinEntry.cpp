@@ -2,12 +2,14 @@
 
 pinEntry::pinEntry()
 {
+    // This is the constructor for the class, it loads any available pin codes from the EEPROM and sets it to the main pin
     loadPin();
     savePin();
 }
 
 void pinEntry::loadPin()
 {
+    // This function loads a pin out of the EEPROM
     String loadPin = "";
     char currentCharacter;
     bool isSaved;
@@ -25,6 +27,7 @@ void pinEntry::loadPin()
 
 void pinEntry::savePin()
 {
+    // This function saves a pin to the EEPROM
     String pinSave = (String)pin;
     int index = 1;
     for (char pinDigit : pinSave)
@@ -37,6 +40,7 @@ void pinEntry::savePin()
 
 bool pinEntry::getUserPin(int attempts)
 {
+    // This function communicates with the GUI to allow the user to enter a pin and will respond if it is correct or not
     int timeAvailable = 30000;
     int start = millis();
     int timeElapsed;
@@ -89,6 +93,7 @@ bool pinEntry::getUserPin(int attempts)
 
 void pinEntry::changeUserPin()
 {
+    // This function allows the user to change the pin stored on the Arduino and saves it to memory
     if (getUserPin(1))
     {
         while (!JsonComms.isAvailable())
