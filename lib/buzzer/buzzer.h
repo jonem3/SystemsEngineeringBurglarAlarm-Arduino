@@ -1,5 +1,6 @@
 #include <Arduino.h>
 
+// this is buzzer class, controls the buzzer functionality
 class buzzer
 {
 private:

@@ -10,7 +10,7 @@ void communicate::setup()
 void communicate::handshake()
 {
     /*
-    
+    this allows the GUI and arduino to cominicate
     */
     bool handshook = false;
     do
@@ -39,6 +39,7 @@ void communicate::clearBuffer()
 
 void communicate::serialRead()
 {
+    //this function gets a message from the GUI
     incoming = "";
     if (Serial.available())
     {
@@ -62,5 +63,6 @@ void communicate::sendMessage(String message)
 
 bool communicate::isAvailable()
 {
+    // this is checking that arduino can reach the GUI
     return Serial.available();
 }

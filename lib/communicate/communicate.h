@@ -1,3 +1,5 @@
+// the communicate class is used to communicate between the arduino and the GUI
+// using the serial protocol
 #include <Arduino.h>
 #include <ArduinoJson.h>
 
