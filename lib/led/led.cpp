@@ -12,6 +12,7 @@ LED::LED(int redPin, int orangePin, int greenPin)
 
 void LED::setup()
 {
+  //setting all LEDS to ouputs  and turning green led on
   for (int pin : pins)
   {
     pinMode(pin, OUTPUT);

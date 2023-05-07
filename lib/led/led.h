@@ -1,3 +1,5 @@
+//LED class, turns on LEDS and turns them off
+
 #ifndef LED_H
 #define LED_H
 

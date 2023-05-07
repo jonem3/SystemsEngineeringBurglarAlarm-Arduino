@@ -1,3 +1,6 @@
+// this class is used to control all sensors
+// works for each sensor used
+
 #include <Arduino.h>
 class sensor
 {

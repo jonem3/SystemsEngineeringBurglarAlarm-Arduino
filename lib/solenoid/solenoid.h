@@ -1,3 +1,5 @@
+//class to control solenoid, turns it on and off
+
 #include <Arduino.h>
 class solenoid
 {

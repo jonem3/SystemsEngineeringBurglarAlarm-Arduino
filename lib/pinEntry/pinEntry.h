@@ -1,3 +1,4 @@
+//this class recieves entry from python and checks it against pin n stored in EEPROM 
 #include <Arduino.h>
 #include <EEPROM.h>
 #include <communicateJson.h>

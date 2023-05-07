@@ -1,3 +1,5 @@
+// this class manages all major functions in the system, it is the central hub.
+
 #include <buzzer.h>
 #include <solenoid.h>
 #include <led.h>

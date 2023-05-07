@@ -17,6 +17,8 @@ void session::setup()
     }
 }
 
+
+// this method is used to build a message to send to python to say which sensor is triggered
 StaticJsonDocument<200> session::checkSensors()
 {
     String states[2] = {"NORMAL", "TRIPPED"};
@@ -42,6 +44,7 @@ StaticJsonDocument<200> session::checkSensors()
     return sensorReadings;
 }
 
+// this is used to check sensors internally in the arduino and used for logic on what to do 
 bool session::internalCheckSensors()
 {
     bool isTriggered = false;
@@ -56,6 +59,7 @@ bool session::internalCheckSensors()
     return isTriggered;
 }
 
+// this tells the GUI what state the alarm system is in, so accurate info can be displayed on the GUI
 bool session::sendAlarmState(String AlarmState)
 {
     if (comms.isAvailable())
@@ -71,6 +75,7 @@ bool session::sendAlarmState(String AlarmState)
     return false;
 }
 
+// this is the main alarm feature, it manages the logic flow of running the alarm
 void session::runAlarm()
 {
 
@@ -167,17 +172,19 @@ void session::runAlarm()
     Solenoid.powerOn();
 }
 
+
+// this method handles user input between gui and arduino
 void session::mainMenu()
 {
     LEDs.setLED(2);
-    while (!comms.isAvailable())
+    while (!comms.isAvailable()) // wait until communication is establised
         ;
     String response = comms.getMessage();
-    if (response == "CP")
+    if (response == "CP") // if chnage pin
     {
         PinEntry.changeUserPin();
     }
-    else if (response == "PO")
+    else if (response == "PO") //if polling
     {
         runAlarm();
     }
